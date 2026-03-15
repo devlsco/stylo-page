@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "next-themes";
@@ -17,6 +17,11 @@ import {
 const Header = () => {
   const { theme, setTheme } = useTheme();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const toggleTheme = () => {
     setTheme(theme === "dark" ? "light" : "dark");
@@ -123,7 +128,9 @@ const Header = () => {
             aria-label="Toggle Theme"
             className="transition-colors hover:bg-accent hover:text-accent-foreground"
           >
-            {theme === "dark" ? (
+            {!mounted ? (
+              <Moon className="h-5 w-5" />
+            ) : theme === "dark" ? (
               <Sun className="h-5 w-5" />
             ) : (
               <Moon className="h-5 w-5" />
