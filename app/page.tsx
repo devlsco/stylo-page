@@ -23,7 +23,7 @@ const HeroSection = () => (
       <div className="flex-1 flex justify-center items-center z-10">
         <div className="w-[260px] sm:w-[300px] md:w-[400px] lg:w-[450px] aspect-square rounded-xl overflow-hidden shadow-lg">
           <iframe
-            src={`https://www.twitch.tv/embed/7stylo/chat?parent=localhost&darkpopout=true`}
+            src={`https://www.twitch.tv/embed/7stylo/chat?parent=bot.styloo.dev&darkpopout=true`}
             title="Twitch Chat"
             width="100%"
             height="100%"
